@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+/* Look and feel modelled on the Windows XP "Luna" theme */
+
+@theme {
+  --font-sans: Tahoma, "Segoe UI", Verdana, ui-sans-serif, system-ui, sans-serif;
+  --color-xp-face: #ece9d8;
+  --color-xp-blue: #0831d9;
+  --color-xp-link: #215dc6;
+  --color-xp-select: #316ac5;
+  --color-xp-border: #7f9db9;
+  --color-xp-muted: #6f6f6f;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  @apply font-sans text-[12px] text-black;
+  background: #3a6ea5;
+}
+
+/* Rolling hill under a clear sky */
+.xp-desktop {
+  background:
+    radial-gradient(120% 60% at 30% 108%, #4f9b1f 0 45%, transparent 46%),
+    radial-gradient(140% 55% at 85% 112%, #3f8a17 0 48%, transparent 49%),
+    radial-gradient(60% 30% at 70% 30%, rgb(255 255 255 / 0.55), transparent 70%),
+    radial-gradient(40% 18% at 20% 22%, rgb(255 255 255 / 0.45), transparent 70%),
+    linear-gradient(180deg, #2a6fd6 0%, #5e9bea 45%, #9fc8f2 70%, #cfe4f7 100%);
+}
+
+@layer components {
+  /* ---------- Window ---------- */
+  .xp-window {
+    @apply flex flex-col overflow-hidden bg-xp-face;
+    border: 3px solid var(--color-xp-blue);
+    border-top: 0;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 2px 4px 14px rgb(0 0 0 / 0.45);
+  }
+
+  .xp-titlebar {
+    @apply flex h-[30px] shrink-0 items-center gap-1.5 px-1.5 text-white select-none;
+    background: linear-gradient(
+      180deg,
+      #0997ff,
+      #0053ee 8%,
+      #0050ee 40%,
+      #06f 88%,
+      #06f 93%,
+      #005bff 95%,
+      #003dd7 96%,
+      #003dd7
+    );
+    border-radius: 7px 7px 0 0;
+    font: bold 13px/1 "Trebuchet MS", Tahoma, sans-serif;
+    text-shadow: 1px 1px #0f1089;
+  }
+
+  .xp-caption-button {
+    @apply flex size-[21px] items-center justify-center rounded-[3px] text-white;
+    border: 1px solid #fff;
+    background: radial-gradient(circle at 90% 90%, #0054e9 0%, #2263d5 55%, #4283ff 90%, #fff 100%);
+    box-shadow: inset -1px -1px 1px rgb(0 0 0 / 0.25);
+  }
+  .xp-caption-button:hover {
+    filter: brightness(1.15);
+  }
+  .xp-caption-button--close {
+    background: radial-gradient(circle at 90% 90%, #cc4600 0%, #dc6527 55%, #cd7546 70%, #fff 100%);
+  }
+
+  /* ---------- Controls ---------- */
+  .xp-button {
+    @apply inline-flex h-[23px] min-w-[75px] items-center justify-center gap-1.5 rounded-[3px] px-2.5 text-[11px] text-black;
+    border: 1px solid #003c74;
+    background: linear-gradient(180deg, #fff, #ecebe6 86%, #d6d0c5);
+  }
+  .xp-button:hover:not(:disabled) {
+    box-shadow:
+      inset -1px 1px #fff0cf,
+      inset 1px 2px #fdd889,
+      inset -2px 2px #fbc761,
+      inset 2px -2px #e5a01a;
+  }
+  .xp-button:active:not(:disabled) {
+    background: linear-gradient(180deg, #cdcac3, #e3e3db 8%, #e5e5de 94%, #f2f2f1);
+  }
+  .xp-button:focus-visible {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+  }
+  .xp-button:disabled {
+    @apply text-[#aca899];
+    border-color: #cac8bb;
+    background: #f5f4ea;
+  }
+
+  .xp-input {
+    @apply h-[22px] w-full bg-white px-1.5 text-[12px] text-black outline-none;
+    border: 1px solid var(--color-xp-border);
+  }
+  .xp-input:focus {
+    border-color: #316ac5;
+  }
+
+  .xp-select {
+    @apply h-[22px] w-full bg-white pl-1 text-[12px] text-black outline-none;
+    border: 1px solid var(--color-xp-border);
+  }
+
+  .xp-check {
+    @apply size-[13px] shrink-0 accent-[#21a121];
+  }
+
+  .xp-progress {
+    @apply h-[14px] overflow-hidden rounded-[3px] bg-white p-px;
+    border: 1px solid #686868;
+  }
+  .xp-progress__bar {
+    @apply h-full transition-[width] duration-300;
+    background: repeating-linear-gradient(90deg, #3bce3b 0 8px, transparent 8px 10px);
+  }
+
+  /* ---------- Explorer task pane ---------- */
+  .xp-taskpane {
+    background: linear-gradient(180deg, #7ba2e7, #6375d6);
+  }
+
+  .xp-panel__header {
+    @apply flex h-[25px] w-full items-center justify-between rounded-t-[3px] pr-1 pl-3 text-left text-[11px] font-bold text-xp-link;
+    background: linear-gradient(90deg, #fff 30%, #c6d3f7);
+  }
+  .xp-panel__header:hover {
+    color: #428eff;
+  }
+
+  .xp-panel__chevron {
+    @apply flex size-[18px] items-center justify-center rounded-full text-xp-link;
+    border: 1px solid #c6d3f7;
+    background: linear-gradient(180deg, #fff, #e0e8fb);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 0.15);
+  }
+
+  .xp-panel__body {
+    @apply flex flex-col gap-1.5 px-3 py-2.5 text-[11px];
+    background: #d6dff7;
+    border: 1px solid #fff;
+    border-top: 0;
+  }
+
+  /* ---------- List view (Details) ---------- */
+  .xp-listview {
+    @apply flex min-h-0 flex-col bg-white;
+    border: 1px solid var(--color-xp-border);
+  }
+
+  .xp-column-header {
+    @apply flex h-[22px] items-center truncate px-1.5 text-[11px] text-black;
+    background: linear-gradient(180deg, #fff, #f1efe2 85%, #e3dfcd);
+    border-right: 1px solid #d6d2c2;
+    border-bottom: 2px solid #d6d2c2;
+  }
+
+  .xp-row {
+    @apply text-[12px] text-black;
+  }
+  .xp-row:hover {
+    background: #e8f0fd;
+  }
+  .xp-row:focus-visible,
+  .xp-row:active {
+    @apply bg-xp-select text-white outline-none;
+  }
+  .xp-row:focus-visible *,
+  .xp-row:active * {
+    color: #fff !important;
+  }
+
+  /* ---------- Status bar & taskbar ---------- */
+  .xp-statusbar {
+    @apply flex h-[22px] shrink-0 items-center text-[11px];
+    background: var(--color-xp-face);
+    border-top: 1px solid #fff;
+    box-shadow: inset 0 1px #d6d2c2;
+  }
+  .xp-statusbar__cell {
+    @apply flex h-full items-center gap-2 truncate px-2;
+    border-right: 1px solid #d6d2c2;
+    box-shadow: 1px 0 #fff;
+  }
+
+  .xp-taskbar {
+    @apply flex h-[30px] shrink-0 items-center gap-2 text-white;
+    background: linear-gradient(
+      180deg,
+      #1f2f86 0,
+      #3165c4 3%,
+      #3682e5 6%,
+      #4490e6 10%,
+      #3883e5 12%,
+      #2b71e0 15%,
+      #2663da 18%,
+      #235bd6 20%,
+      #2258d5 23%,
+      #2157d6 38%,
+      #245ddb 54%,
+      #2562df 86%,
+      #245fdc 89%,
+      #2158d4 92%,
+      #1d4ec0 95%,
+      #1941a5 98%
+    );
+  }
+
+  .xp-start {
+    @apply flex h-full items-center gap-1.5 rounded-r-[10px] pr-5 pl-2.5 text-[18px] font-bold italic text-white;
+    font-family: "Franklin Gothic Medium", "Trebuchet MS", Tahoma, sans-serif;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 0.6);
+    background: radial-gradient(circle at 20% 10%, #8fd88f 0%, #3c9d3c 35%, #2e8a2e 70%, #1d6e1d 100%);
+    box-shadow: inset -2px 0 3px rgb(0 0 0 / 0.35);
+  }
+  .xp-start:hover {
+    filter: brightness(1.1);
+  }
+
+  .xp-tray {
+    @apply ml-auto flex h-full items-center gap-3 px-3 text-[11px];
+    background: linear-gradient(180deg, #0c59b9 1%, #139ee9 6%, #18b5f2 10%, #139beb 14%, #1290e8 19%, #0d8dea 63%, #0d9ff1 81%, #0f9eed 88%, #119be9 91%, #1392e2 94%, #137ed7 97%, #095bc9);
+    border-left: 1px solid #1042af;
+    box-shadow: inset 1px 0 1px #18bbff;
+  }
+
+  .xp-task {
+    @apply flex h-[24px] w-[180px] items-center gap-1.5 truncate rounded-[3px] px-2 text-[11px] text-white;
+    background: #1e52b7;
+    box-shadow: inset 1px 1px 1px rgb(0 0 0 / 0.4);
+  }
+}
