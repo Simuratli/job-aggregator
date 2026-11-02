@@ -1,7 +1,7 @@
-import { joinParts, toTimestamp } from "../normalize";
+import { joinParts, toTimestamp } from "../normalize.js";
 import type { Company, RawJob, Workplace } from "../../src/types";
-import { JOIN_MAX_PAGES, JOIN_PAGE_SIZE } from "../config";
-import { fetchJson, fetchJsonWithHeaders } from "../http";
+import { JOIN_MAX_PAGES, JOIN_PAGE_SIZE } from "../config.js";
+import { fetchJson, fetchJsonWithHeaders } from "../http.js";
 
 interface JoinJob {
   id: number;

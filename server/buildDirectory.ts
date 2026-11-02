@@ -12,10 +12,10 @@
 import { readFile } from "node:fs/promises";
 import { parseArgs } from "node:util";
 import type { Company, Provider } from "../src/types";
-import { FETCH_CONCURRENCY, PATHS, PROBE_CONCURRENCY } from "./config";
-import { companyKey, logEvery, readCompanies, writeCompanies } from "./files";
-import { runPool } from "./pool";
-import { RESOLVERS, resolveCompany } from "./probe";
+import { FETCH_CONCURRENCY, PATHS, PROBE_CONCURRENCY } from "./config.js";
+import { companyKey, logEvery, readCompanies, writeCompanies } from "./files.js";
+import { runPool } from "./pool.js";
+import { RESOLVERS, resolveCompany } from "./probe.js";
 
 const PROBED_PROVIDERS = ["smartrecruiters", "bamboohr", "breezy", "join"] as const;
 const VERIFIED_PROVIDERS = ["ashby", "greenhouse", "lever", ...PROBED_PROVIDERS] as const;

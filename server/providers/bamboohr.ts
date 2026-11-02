@@ -1,6 +1,6 @@
-import { joinParts } from "../normalize";
+import { joinParts } from "../normalize.js";
 import type { Company, RawJob, Workplace } from "../../src/types";
-import { fetchJson } from "../http";
+import { fetchJson } from "../http.js";
 
 interface BambooJob {
   id: string;

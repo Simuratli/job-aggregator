@@ -5,9 +5,9 @@
 
 import { parseArgs } from "node:util";
 import type { Company } from "../src/types";
-import { companyKey, readCompanies, writeCompanies } from "./files";
-import { runPool } from "./pool";
-import { RESOLVERS, resolveCompany } from "./probe";
+import { companyKey, readCompanies, writeCompanies } from "./files.js";
+import { runPool } from "./pool.js";
+import { RESOLVERS, resolveCompany } from "./probe.js";
 
 type ProbedProvider = keyof typeof RESOLVERS;
 

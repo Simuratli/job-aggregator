@@ -1,7 +1,7 @@
-import { joinParts, toTimestamp } from "../normalize";
+import { joinParts, toTimestamp } from "../normalize.js";
 import type { Company, RawJob } from "../../src/types";
-import { SMARTRECRUITERS_MAX_JOBS, SMARTRECRUITERS_PAGE_SIZE } from "../config";
-import { fetchJson } from "../http";
+import { SMARTRECRUITERS_MAX_JOBS, SMARTRECRUITERS_PAGE_SIZE } from "../config.js";
+import { fetchJson } from "../http.js";
 
 interface SmartRecruitersPosting {
   id: string;

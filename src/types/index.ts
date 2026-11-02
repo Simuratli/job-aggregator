@@ -49,12 +49,18 @@ export interface JobFilters {
   sort: SortOrder;
 }
 
-/** Lines of the NDJSON stream from /api/jobs/stream */
-export type JobsStreamMessage =
-  | { type: "start"; boards: number }
-  | { type: "board"; provider: Provider; jobs: RawJob[] }
-  | { type: "failed"; provider: Provider; slug: string }
-  | { type: "done" };
+/** Response of GET /api/jobs?batch=N: the live jobs of one slice of the company list */
+export interface JobsBatch {
+  batch: number;
+  batches: number;
+  totalBoards: number;
+  /** Boards in this batch */
+  boards: number;
+  failed: number;
+  /** Boards in this batch that returned at least one job, per provider */
+  active: Partial<Record<Provider, number>>;
+  jobs: RawJob[];
+}
 
 export interface WorkableSearchResult {
   /** How many Workable jobs match in total; only the first few pages are returned */

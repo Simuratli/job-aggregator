@@ -1,9 +1,9 @@
 import type { Company, Provider } from "../src/types";
-import { fetchJsonOrNull, request } from "./http";
-import { fetchAshbyBoard } from "./providers/ashby";
-import { BAMBOO_INIT, bambooListUrl } from "./providers/bamboohr";
-import { breezyListUrl, type BreezyJob } from "./providers/breezy";
-import { joinJobsUrl } from "./providers/join";
+import { fetchJsonOrNull, request } from "./http.js";
+import { fetchAshbyBoard } from "./providers/ashby.js";
+import { BAMBOO_INIT, bambooListUrl } from "./providers/bamboohr.js";
+import { breezyListUrl, type BreezyJob } from "./providers/breezy.js";
+import { joinJobsUrl } from "./providers/join.js";
 
 type Resolver = (slug: string, name: string) => Promise<Company | null>;
 

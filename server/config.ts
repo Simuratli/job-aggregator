@@ -24,6 +24,13 @@ export const FETCH_CONCURRENCY: Record<Provider, number> = {
   join: 4,
 };
 
+/**
+ * The browser asks for the company list in batches (GET /api/jobs?batch=N) so each serverless call
+ * stays short; boards in a batch are fetched this many at a time
+ */
+export const BATCH_SIZE = 100;
+export const BATCH_CONCURRENCY = 20;
+
 /** Probing guesses mostly misses, so stay gentler than live fetching */
 export const PROBE_CONCURRENCY = 6;
 

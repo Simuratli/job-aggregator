@@ -1,5 +1,5 @@
 import type { Company, RawJob, Workplace } from "../../src/types";
-import { fetchJson } from "../http";
+import { fetchJson } from "../http.js";
 
 interface AshbyPosting {
   id: string;

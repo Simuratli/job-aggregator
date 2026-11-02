@@ -1,6 +1,6 @@
-import { toTimestamp } from "../normalize";
+import { toTimestamp } from "../normalize.js";
 import type { Company, RawJob } from "../../src/types";
-import { fetchJson } from "../http";
+import { fetchJson } from "../http.js";
 
 interface GreenhouseJob {
   id: number;

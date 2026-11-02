@@ -1,7 +1,7 @@
 import type { Company, RawJob } from "../src/types";
-import { BOARD_CACHE_TTL_MS } from "./config";
-import { companyKey } from "./files";
-import { BOARD_FETCHERS } from "./providers";
+import { BOARD_CACHE_TTL_MS } from "./config.js";
+import { companyKey } from "./files.js";
+import { BOARD_FETCHERS } from "./providers/index.js";
 
 interface Entry {
   expiresAt: number;

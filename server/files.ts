@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import type { Company } from "../src/types";
-import { PATHS } from "./config";
+import { PATHS } from "./config.js";
 
 export const readJson = async <T>(path: URL, fallback: T): Promise<T> => {
   try {

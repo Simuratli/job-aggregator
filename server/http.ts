@@ -1,4 +1,4 @@
-import { MAX_RETRIES, REQUEST_TIMEOUT_MS, RETRY_BASE_DELAY_MS } from "./config";
+import { MAX_RETRIES, REQUEST_TIMEOUT_MS, RETRY_BASE_DELAY_MS } from "./config.js";
 
 export class HttpError extends Error {
   readonly status: number;

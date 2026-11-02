@@ -1,7 +1,7 @@
 import type { RawJob, WorkableSearchResult, Workplace } from "../src/types";
-import { WORKABLE_PAGE_SIZE, WORKABLE_SEARCH_PAGES } from "./config";
-import { fetchJson } from "./http";
-import { joinParts, toTimestamp } from "./normalize";
+import { WORKABLE_PAGE_SIZE, WORKABLE_SEARCH_PAGES } from "./config.js";
+import { fetchJson } from "./http.js";
+import { joinParts, toTimestamp } from "./normalize.js";
 
 interface WorkableSearchJob {
   id: string;

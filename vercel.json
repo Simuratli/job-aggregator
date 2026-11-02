@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/jobs.ts": {
+      "maxDuration": 60,
+      "includeFiles": "public/data/companies.json"
+    },
+    "api/workable/search.ts": {
+      "maxDuration": 30
+    }
+  }
+}
