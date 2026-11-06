@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://unkai-job-radar.vercel.app/sitemap.xml
